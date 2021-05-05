@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  
+  <title>Cookbook - Dendron</title>
+  
+
+  <link
+    rel="shortcut icon"
+    href="https://wiki.dendron.so/favicon.ico"
+    type="image/x-icon"
+  />
+  <link
+    rel="stylesheet"
+    href="https://wiki.dendron.so/assets/css/just-the-docs-default.css"
+  />
+  <script
+    type="text/javascript"
+    src="https://wiki.dendron.so/assets/js/just-the-docs.js"
+  ></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/themes/prism.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+    integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+    crossorigin="anonymous"
+  />
+  <script
+    type="text/javascript"
+    src="https://wiki.dendron.so/assets/js/vendor/lunr.min.js"
+  ></script>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   
+  
+<meta name="description" content="Dendron is a local-first, markdown based, hierarchical note taking tool. It is meant to help you create, organize, and collaborate on knowledge bases of any size.">
+<meta name="author" content="dendronhq">
+
+<link rel="canonical" href="https://wiki.dendron.so/notes/a80f36d9-01d0-4c5a-a228-867b093a4913.html">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://wiki.dendron.so/notes/a80f36d9-01d0-4c5a-a228-867b093a4913.html">
+<meta property="og:description" content="Dendron is a local-first, markdown based, hierarchical note taking tool. It is meant to help you create, organize, and collaborate on knowledge bases of any size.">
+<meta property="og:image" content="https://wiki.dendron.so/logo.png">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@dendronhq">
+<meta name="twitter:url" content="https://wiki.dendron.so/notes/a80f36d9-01d0-4c5a-a228-867b093a4913.html">
+<meta name="twitter:description" content="Dendron is a local-first, markdown based, hierarchical note taking tool. It is meant to help you create, organize, and collaborate on knowledge bases of any size.">
+<meta name="twitter:image" content="https://wiki.dendron.so/logo.png">
+
+
+  <meta property="og:title" content="Cookbook - Dendron" />
+  <meta name="twitter:title" content="Cookbook - Dendron" />
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0JN2HHCNY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-B0JN2HHCNY');
+  </script>
+  
+</head>
+
+
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+      <symbol id="svg-link" viewBox="0 0 24 24">
+        <title>Link</title>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+      </symbol>
+      <symbol id="svg-search" viewBox="0 0 24 24">
+        <title>Search</title>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+          <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </symbol>
+      <symbol id="svg-menu" viewBox="0 0 24 24">
+        <title>Menu</title>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+          <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </symbol>
+      <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+        <title>Expand</title>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </symbol>
+      <symbol id="svg-doc" viewBox="0 0 24 24">
+        <title>Document</title>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+          <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+        </svg>
+      </symbol>
+    </svg>
+
+    <div class="side-bar">
+      <div class="site-header">
+        <a href="https://wiki.dendron.so" class="site-title lh-tight">
+  <div class="site-logo"></div>
+
+ </a>
+        <a href="#" id="menu-button" class="site-button">
+          <svg viewBox="0 0 24 24" class="icon"><use xlink:href="#svg-menu"></use></svg>
+        </a>
+      </div>
+
+      <nav role="navigation" aria-label="Main" id="site-nav" class="site-nav">
+      </nav>
+      <footer class="site-footer">
+        🌱 with 💕 using <a href="https://www.dendron.so/"> Dendron 🌲 </a>
+      </footer>
+    </div>
+    <div class="main" id="top">
+        <div id="main-header" class="main-header">
+          
+            <div class="search">
+              <div class="search-input-wrap">
+                <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Dendron" aria-label="Search Dendron" autocomplete="off">
+                <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+              </div>
+              <div id="search-results" class="search-results"></div>
+            </div>
+          
+          
+    </div>
+    <div id="main-content-wrap" class="main-content-wrap">
+      
+        
+          <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+            <ol class="breadcrumb-nav-list"><li class="breadcrumb-nav-list-item"><a href="https://wiki.dendron.so">Dendron</a></li><li class="breadcrumb-nav-list-item"><a href="https://wiki.dendron.so/notes/3489b652-cd0e-4ac8-a734-08094dc043eb.html">Development</a></li><li class="breadcrumb-nav-list-item">Cookbook</li></ol>
+          </nav>
+        
+      
+      <div id="main-content" class="main-content" role="main">
+
+        
+        
+        <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+        
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+        
+        
+
+        
+
+        
+
+        
+
+        <script>
+          $(function () {
+            $('[data-toggle="popover"]').popover({html: true})
+          })
+        </script>
+
+        
+
+<div id="main" role="main">
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Cookbook">
+    
+    <meta itemprop="datePublished" content="2020-09-03T16:51:58+00:00">
+    <meta itemprop="dateModified" content="2021-03-03T22:42:53+00:00">
+
+    <div class="page__inner-wrap">
+
+      
+
+      <section class="page__content" itemprop="text">
+
+        
+
+        <h1 id="cookbook"><a aria-hidden="true" class="anchor-heading" href="#cookbook"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Cookbook</h1>
+<h3 id="install-a-new-package"><a aria-hidden="true" class="anchor-heading" href="#install-a-new-package"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Install a new package</h3>
+<p>Because Dendron is packaged as a mono repo managed using <a href="https://github.com/lerna/lerna">lerna</a>, you can't just do a regular <code>yarn add</code> to install new packages. This is because lerna symlinks mono-repo dependencies together and a <code>yarn add</code> would override that. Instead, use the following command:</p>
+<pre><code>lerna add {package-to-install} --scope @dendronhq/{package-to-install-into}
+</code></pre>
+<p>Because this is typescript, don't forget to also install the <code>@types</code> package if it exists</p>
+<pre class="language-bash"><code class="language-bash">lerna <span class="token function">add</span> @types/<span class="token punctuation">{</span>package-to-install<span class="token punctuation">}</span> --scope @dendronhq/<span class="token punctuation">{</span>package-to-install-into<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="add-a-new-node-package"><a aria-hidden="true" class="anchor-heading" href="#add-a-new-node-package"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Add a new node package</h3>
+<ul>
+<li>initialize repo</li>
+</ul>
+<pre class="language-bash"><code class="language-bash"><span class="token builtin class-name">cd</span> <span class="token punctuation">{</span>workspace_dir<span class="token punctuation">}</span>
+<span class="token function">cp</span> -R /path/to/dendron-yeoman/node-ts packages/<span class="token punctuation">{</span>new-package<span class="token punctuation">}</span>
+</code></pre>
+<ul>
+<li>
+<p>update <code>package.json</code></p>
+<ul>
+<li>change project name</li>
+</ul>
+</li>
+<li>
+<p>publish the repo (needs to be done initially before running lerna publish)</p>
+</li>
+</ul>
+<pre><code>npm publish --access public
+</code></pre>
+<h3 id="using-eslint"><a aria-hidden="true" class="anchor-heading" href="#using-eslint"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Using eslint</h3>
+<p>All packages in the repo use a standard base configuration found at <a href=".eslintrc.js">.eslintrc.js</a>. If you're using the VS Code and would like to see eslint violations on it, install the <a href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint">eslint extension</a>.</p>
+<h3 id="add-a-new-site-config-option"><a aria-hidden="true" class="anchor-heading" href="#add-a-new-site-config-option"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Add a new site config option</h3>
+<p>The following is an example of controlling formatting options to the DendronSiteConfig. You can see the <a href="https://github.com/dendronhq/dendron/issues/278">issue</a> for more details.</p>
+<p>Dendron currently will auto-format notes during <code>Rename</code> and <code>Refactor</code> operations when links inside a note need to be replaced.</p>
+<p>The formatting options are defined <a href="https://dendron.so/notes/849ee8ee-05a5-47bf-b44d-d7c257117bc4.html#renaming-a-note">here</a>.</p>
+<p>These are <a href="https://dendron.so/notes/849ee8ee-05a5-47bf-b44d-d7c257117bc4.html#flow">rough notes</a> of how formatting gets called during rename</p>
+<p>To make this customizable, the following changes need to be made:</p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled> update the <a href="https://github.com/dendronhq/dendron/blob/master/packages/common-all/src/types.ts#L405:L405">DendronConfig type definition</a></li>
+<li class="task-list-item"><input type="checkbox" disabled> update <a href="https://github.com/dendronhq/dendron/blob/master/packages/engine-server/src/config.ts#L42:L42">config defaults</a></li>
+<li class="task-list-item"><input type="checkbox" disabled> pass in formatting options from the <a href="https://github.com/dendronhq/dendron/blob/master/packages/plugin-core/src/commands/RenameNoteV2a.ts#L137:L137">plugin</a></li>
+<li class="task-list-item"><input type="checkbox" disabled> accept formatting args in the <a href="https://github.com/dendronhq/dendron/blob/master/packages/api-server/src/routes/note.ts#L38:L38">server</a></li>
+<li class="task-list-item"><input type="checkbox" disabled> accept formatting args in the <a href="https://github.com/dendronhq/dendron/blob/master/packages/engine-server/src/enginev2.ts#L249:L249">engine</a></li>
+<li class="task-list-item"><input type="checkbox" disabled> accept it when <a href="https://github.com/dendronhq/dendron/blob/master/packages/engine-server/src/topics/markdown/utilsv2.ts#L85:L85">replacing links</a></li>
+<li class="task-list-item"><input type="checkbox" disabled> accept it in <a href="https://github.com/dendronhq/dendron/blob/master/packages/engine-server/src/topics/markdown/utilsv2.ts#L41:L41">remark pipeline</a></li>
+</ul>
+<p>When all this is done, we can add tests that the formatting behavior works</p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled> <a href="https://github.com/dendronhq/dendron/blob/master/packages/engine-server/src/__tests__/enginev2.spec.ts#L652:L652">engine tests</a></li>
+<li class="task-list-item"><input type="checkbox" disabled> <a href="https://github.com/dendronhq/dendron/blob/master/packages/plugin-core/src/test/suite-integ/RenameNoteV2.test.ts#L157:L157">plugin test</a></li>
+</ul>
+<p>The above changes are for <code>Rename</code>. <code>Refactor</code> calls rename in a loop so changing rename should update refactor as well.</p>
+<hr>
+<h2 id="backlinks"><a aria-hidden="true" class="anchor-heading" href="#backlinks"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Backlinks</h2>
+<ul>
+<li><a href="https://wiki.dendron.so/notes/1bce1c33-c14b-4e5e-b493-45683c8cf54f.html">Cook</a></li>
+</ul><span id="navId" data="a80f36d9-01d0-4c5a-a228-867b093a4913"></span>
+
+                
+      </section>
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+
+        
+          <hr>
+          <footer>
+            
+            
+
+            
+              <div class="d-flex mt-2">
+              <p class="text-small text-grey-dk-000 mb-0 mr-2">
+                Page last modified: <span class="d-inline-block">3/3/2021</span>.
+              </p>
+            
+                
+                  <p class="text-small text-grey-dk-000 mb-0">
+                    <a href="https://github.com/dendronhq/dendron-site/edit/master/vault/dendron.dev.cook.md" id="edit-this-page">Edit this page on GitHub</a>
+                  </p>
+                
+              </div>
+          </footer>
+        
+    </div>
+</div>
+
+
+  
+
+  <div class="search-overlay"></div>
+
+</div>
+
+</body>
+</html>
