@@ -49,7 +49,7 @@ With multivault, workspace configuration  will be moved underneath a separate fo
 
 ![[dendron.roadmap.project.n.2020.multi-vault#file-layout-for-multi-vault-workspace,1:#*]]
 
-Inside a multi-vault workspace, each vault and config will be initialized as separate and independent git repositories. To initialize a multi-vault workspace, you can run `Dendorn: Initialize MultiVault Workspace` to bootstrap the folder layout that you see above. 
+Inside a multi-vault workspace, each vault and config will be initialized as separate and independent git repositories. To initialize a multi-vault workspace, you can run `Dendron: Initialize MultiVault Workspace` to bootstrap the folder layout that you see above. (Note: this Command is deprecated or not present at the moment. Don't bother looking for it) Instead run `Dendron: Add Vault`
 
 We will also be releasing a migration script that can convert a single vault workspace into a multi-vault workspace. 
 
